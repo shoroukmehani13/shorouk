@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookVerse - Digital Book Fair & Library</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-stone-50 font-sans pt-20">
+
+    <!-- Navigation Bar -->
     <nav class="bg-white shadow-md fixed w-full z-50 top-0 border-b border-stone-100">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <span class="text-3xl font-bold text-amber-900">Bookverse</span>
-                <span class="bg-amber-100 text-amber-900 text-xs px-2 py-1 rounded-full font-medium">Book Fair & Library</span>
+                <span class="text-2xl md:text-3xl font-bold text-amber-900">Bookverse</span>
+                <span class="bg-amber-100 text-amber-900 text-xs px-2 py-1 rounded-full font-medium hidden sm:inline-block">Book Fair & Library</span>
             </div>
+            
+            <!-- Desktop Links -->
             <div class="hidden md:flex space-x-8 text-stone-700 font-medium">
                 <a href="#" class="hover:text-amber-700 transition">Home</a>
                 <a href="#" class="hover:text-amber-700 transition">Genres</a>
@@ -21,114 +25,158 @@
                 <a href="#" class="hover:text-amber-700 transition">Authors</a>
                 <a href="#" class="hover:text-amber-700 transition">Contact Us</a>
             </div>
-            <button class="bg-amber-800 text-white px-6 py-2 rounded-lg hover:bg-amber-900 transition-all duration-300 shadow-md hover:shadow-xl font-medium">Explore Catalog</button>
+            
+            <div class="flex items-center gap-4">
+                <button class="bg-amber-800 text-white px-4 md:px-6 py-2 rounded-lg hover:bg-amber-900 transition-all duration-300 shadow-md hover:shadow-xl text-sm md:text-base font-medium">Explore Catalog</button>
+                
+                <!-- زر القائمة للهاتف (تم تحويله إلى Label مرتبط بـ Checkbox) -->
+                <label for="menu-toggle" class="text-stone-700 text-2xl md:hidden cursor-pointer hover:text-amber-800 transition select-none">
+                    <i class="fas fa-bars"></i>
+                </label>
+            </div>
+        </div>
+
+        <!-- الـ Checkbox المخفي للتحكم في حالة القائمة -->
+        <input type="checkbox" id="menu-toggle" class="hidden peer">
+
+        <!-- قائمة الهاتف الذكية (تظهر فقط عندما يتم تفعيل الـ Checkbox أعلاه) -->
+        <div class="hidden peer-checked:block md:hidden bg-white border-t border-stone-100 px-4 py-4 space-y-3 shadow-inner">
+            <a href="#" class="block text-stone-700 hover:text-amber-700 font-medium transition">Home</a>
+            <a href="#" class="block text-stone-700 hover:text-amber-700 font-medium transition">Genres</a>
+            <a href="#" class="block text-stone-700 hover:text-amber-700 font-medium transition">Best Sellers</a>
+            <a href="#" class="block text-stone-700 hover:text-amber-700 font-medium transition">Authors</a>
+            <a href="#" class="block text-stone-700 hover:text-amber-700 font-medium transition">Contact Us</a>
         </div>
     </nav>
-    <section class="min-h-screen bg-gradient-to-br from-amber-50/60 via-white to-orange-50/40 flex items-center py-16">
-        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
-            <div class="flex-1 space-y-8">
-                <h1 class="text-4xl md:text-6xl text-amber-900 font-medium leading-tight">Discover Your Next Great Adventure In Reading</h1>
-                <p class="text-xl text-amber-800 leading-relaxed">Immerse yourself in thousands of books, rare editions, and modern masterpieces. From timeless classics to groundbreaking contemporary fiction.</p>
-<div class="flex flex-wrap gap-6 text-amber-800">
-    <div class="flex items-center gap-2"><div class="w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center"><i class="fas fa-check text-white text-xs"></i></div>10,000+ Titles Available</div>
-    <div class="flex items-center gap-2"><div class="w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center"><i class="fas fa-check text-white text-xs"></i></div>Worldwide Shipping</div>
-    <div class="flex items-center gap-2"><div class="w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center"><i class="fas fa-check text-white text-xs"></i></div>Exclusive Audiobooks</div>
-</div>
-                <div class="flex flex-wrap gap-4 text-lg font-semibold">
-                    <button class="bg-amber-800 text-white px-8 py-4 rounded-xl hover:bg-amber-900 transition-all duration-300 shadow-lg hover:shadow-2xl focus:ring-4 focus:ring-amber-200">Browse Best Sellers</button>
-                    <button class="border-2 border-stone-300 text-stone-700 px-8 py-4 rounded-xl hover:border-amber-800 hover:text-amber-800 transition-all duration-300 flex items-center gap-2"><i class="fas fa-play"></i>Watch Virtual Tour</button>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen bg-gradient-to-br from-amber-50/60 via-white to-orange-50/40 flex items-center py-12 md:py-20">
+        <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-16">
+            
+            <!-- Hero Text Left -->
+            <div class="flex-1 space-y-6 md:space-y-8 order-2 lg:order-1">
+                <h1 class="text-3xl md:text-6xl text-amber-900 font-medium leading-tight text-center lg:text-left">Discover Your Next Great Adventure In Reading</h1>
+                <p class="text-lg md:text-xl text-amber-800 leading-relaxed text-center lg:text-left">Immerse yourself in thousands of books, rare editions, and modern masterpieces. From timeless classics to groundbreaking contemporary fiction.</p>
+                
+                <div class="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-4 md:gap-6 text-amber-800">
+                    <div class="flex items-center gap-2 justify-center lg:justify-start"><div class="w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center shrink-0"><i class="fas fa-check text-white text-xs"></i></div>10,000+ Titles Available</div>
+                    <div class="flex items-center gap-2 justify-center lg:justify-start"><div class="w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center shrink-0"><i class="fas fa-check text-white text-xs"></i></div>Worldwide Shipping</div>
+                    <div class="flex items-center gap-2 justify-center lg:justify-start"><div class="w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center shrink-0"><i class="fas fa-check text-white text-xs"></i></div>Exclusive Audiobooks</div>
                 </div>
-            </div>
-        <div class="flex-1 relative">
-    <div class="w-full h-96 bg-gradient-to-br from-amber-700 to-amber-950 rounded-3xl shadow-2xl overflow-hidden relative">
-        <div class="absolute top-10 right-10 w-20 h-20 bg-white/10 rounded-full backdrop-blur"></div>
-        <div class="absolute bottom-10 left-10 w-32 h-32 bg-white/10 rounded-full backdrop-blur"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"><i class="fas fa-book-open text-8xl text-white/30"></i></div>
-    </div>
-    
-    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border text-amber-900">
-        <div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center">
-            <i class="fas fa-bookmark text-amber-600 text-xl"></i>
-        </div>
-        <div>
-            <p class="text-sm text-amber-900">Active Readers</p>
-            <p class="text-2xl font-bold text-amber-900">+25,000</p>
-        </div>
-    </div>
-</div>
-    </section>
- <section class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16 space-y-4">
-            <h2 class="text-4xl font-bold text-stone-900">Featured Literary Genres</h2>
-            <p class="text-xl text-stone-600 max-w-2xl mx-auto">Explore carefully curated collections designed to captivate your imagination and expand your knowledge.</p>
-            <div class="w-12 h-1 bg-amber-800 mx-auto rounded-full"></div>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-            <div class="w-full max-w-[360px] min-h-[480px] flex flex-col justify-between bg-white p-8 rounded-2xl border border-stone-200 hover:border-amber-800 hover:shadow-2xl transition-all duration-300 group">
-                <div>
-                    <div class="w-16 h-16 bg-amber-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-800 transform group-hover:-translate-y-1 transition-all duration-300">
-                        <i class="fas fa-wand-magic-sparkles text-3xl text-amber-800 group-hover:text-white transition duration-300"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 text-stone-800">Sci-Fi & Fantasy</h3>
-                    <p class="text-stone-600 mb-4 leading-relaxed">Journey into distant worlds, futuristic societies, and magical realms crafted by brilliant visionary authors.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 text-base md:text-lg font-semibold">
+                    <button class="bg-amber-800 text-white px-8 py-4 rounded-xl hover:bg-amber-900 transition-all duration-300 shadow-lg hover:shadow-2xl focus:ring-4 focus:ring-amber-200 w-full sm:w-auto">Browse Best Sellers</button>
+                    <button class="border-2 border-stone-300 text-stone-700 px-8 py-4 rounded-xl hover:border-amber-800 hover:text-amber-800 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto"><i class="fas fa-play"></i>Watch Virtual Tour</button>
                 </div>
-                <ul class="space-y-2 text-stone-600 mt-auto">
-                    <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Space Operas</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Epic Magic Systems</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Cyberpunk Fiction</li>
-                </ul>
-            </div>
-            <div class="w-full max-w-[360px] min-h-[480px] flex flex-col justify-between bg-white p-8 rounded-2xl border border-stone-200 hover:border-amber-700 hover:shadow-2xl transition-all duration-300 group">
-                <div>
-                    <div class="w-16 h-16 bg-amber-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-700 transform group-hover:-translate-y-1 transition-all duration-300">
-                        <i class="fas fa-scroll text-3xl text-amber-700 group-hover:text-white transition duration-300"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 text-stone-800">History & Biographies</h3>
-                    <p class="text-stone-600 mb-4 leading-relaxed">Uncover true stories of past civilizations and learn lessons from inspiring lives that shaped human history.</p>
-                </div>
-                <ul class="space-y-2 text-stone-600 mt-auto">
-                    <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Ancient Civilizations</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Political Memoirs</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Inspirational Leaders</li>
-                </ul>
-            </div>
-            <div class="w-full max-w-[360px] min-h-[480px] flex flex-col justify-between bg-white p-8 rounded-2xl border border-stone-200 hover:border-amber-600 hover:shadow-2xl transition-all duration-300 group">
-                <div>
-                    <div class="w-16 h-16 bg-amber-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-600 transform group-hover:-translate-y-1 transition-all duration-300">
-                        <i class="fas fa-lightbulb text-3xl text-amber-600 group-hover:text-white transition duration-300"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-3 text-stone-800">Self-Development & Business</h3>
-                    <p class="text-stone-600 mb-4 leading-relaxed">Empower your career, financial intelligence, and mental wellbeing with insights from global business experts.</p>
-                </div>
-                <ul class="space-y-2 text-stone-600 mt-auto">
-                    <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Entrepreneurship Guides</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Mindfulness & Focus</li>
-                    <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Financial Literacy</li>
-                </ul>
             </div>
 
+            <!-- Hero Image/Graphic Right -->
+            <div class="flex-1 w-full relative order-1 lg:order-2 pb-12 lg:pb-0">
+                <div class="w-full h-64 sm:h-80 md:h-96 bg-gradient-to-br from-amber-700 to-amber-950 rounded-3xl shadow-2xl overflow-hidden relative">
+                    <div class="absolute top-6 right-6 sm:top-10 sm:right-10 w-16 h-16 sm:w-20 sm:h-20 bg-white/10 rounded-full backdrop-blur"></div>
+                    <div class="absolute bottom-6 left-6 sm:bottom-10 sm:left-10 w-24 h-24 sm:w-32 sm:h-32 bg-white/10 rounded-full backdrop-blur"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                        <i class="fas fa-book-open text-6xl sm:text-8xl text-white/30"></i>
+                    </div>
+                </div>
+                
+                <!-- كارت القراء النشطين -->
+                <div class="absolute -bottom-2 sm:-bottom-6 left-1/2 transform -translate-x-1/2 sm:translate-x-0 sm:left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-stone-100 text-amber-900 w-[90%] sm:w-auto max-w-sm">
+                    <div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center shrink-0">
+                        <i class="fas fa-bookmark text-amber-600 text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs sm:text-sm text-amber-900 font-medium">Active Readers</p>
+                        <p class="text-xl sm:text-2xl font-bold text-amber-900">+25,000</p>
+                    </div>
+                </div>
+            </div>
+            
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- Genres Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 space-y-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-stone-900">Featured Literary Genres</h2>
+                <p class="text-lg md:text-xl text-stone-600 max-w-2xl mx-auto">Explore carefully curated collections designed to captivate your imagination and expand your knowledge.</p>
+                <div class="w-12 h-1 bg-amber-800 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                <!-- Genre 1 -->
+                <div class="w-full max-w-[360px] min-h-[480px] flex flex-col justify-between bg-white p-8 rounded-2xl border border-stone-200 hover:border-amber-800 hover:shadow-2xl transition-all duration-300 group">
+                    <div>
+                        <div class="w-16 h-16 bg-amber-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-800 transform group-hover:-translate-y-1 transition-all duration-300">
+                            <i class="fas fa-wand-magic-sparkles text-3xl text-amber-800 group-hover:text-white transition duration-300"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-stone-800">Sci-Fi & Fantasy</h3>
+                        <p class="text-stone-600 mb-4 leading-relaxed">Journey into distant worlds, futuristic societies, and magical realms crafted by brilliant visionary authors.</p>
+                    </div>
+                    <ul class="space-y-2 text-stone-600 mt-auto">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Space Operas</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Epic Magic Systems</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Cyberpunk Fiction</li>
+                    </ul>
+                </div>
+
+                <!-- Genre 2 -->
+                <div class="w-full max-w-[360px] min-h-[480px] flex flex-col justify-between bg-white p-8 rounded-2xl border border-stone-200 hover:border-amber-700 hover:shadow-2xl transition-all duration-300 group">
+                    <div>
+                        <div class="w-16 h-16 bg-amber-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-700 transform group-hover:-translate-y-1 transition-all duration-300">
+                            <i class="fas fa-scroll text-3xl text-amber-700 group-hover:text-white transition duration-300"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-stone-800">History & Biographies</h3>
+                        <p class="text-stone-600 mb-4 leading-relaxed">Uncover true stories of past civilizations and learn lessons from inspiring lives that shaped human history.</p>
+                    </div>
+                    <ul class="space-y-2 text-stone-600 mt-auto">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Ancient Civilizations</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Political Memoirs</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Inspirational Leaders</li>
+                    </ul>
+                </div>
+
+                <!-- Genre 3 -->
+                <div class="w-full max-w-[360px] min-h-[480px] flex flex-col justify-between bg-white p-8 rounded-2xl border border-stone-200 hover:border-amber-600 hover:shadow-2xl transition-all duration-300 group">
+                    <div>
+                        <div class="w-16 h-16 bg-amber-50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-amber-600 transform group-hover:-translate-y-1 transition-all duration-300">
+                            <i class="fas fa-lightbulb text-3xl text-amber-600 group-hover:text-white transition duration-300"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-stone-800">Self-Development & Business</h3>
+                        <p class="text-stone-600 mb-4 leading-relaxed">Empower your career, financial intelligence, and mental wellbeing with insights from global business experts.</p>
+                    </div>
+                    <ul class="space-y-2 text-stone-600 mt-auto">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Entrepreneurship Guides</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Mindfulness & Focus</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-amber-600"></i>Financial Literacy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
     <section class="py-20 bg-gradient-to-r from-amber-900 to-stone-900 relative overflow-hidden text-center text-white">
         <div class="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full translate-x-1/2 translate-y-1/2"></div>
-        <div class="container mx-auto px-4 relative z-10 flex flex-wrap justify-around gap-8 text-xl">
-            <div><div class="text-4xl mb-4 font-bold text-amber-400">+15,000</div><div class="text-stone-300">Books Sold This Month</div></div>
-            <div><div class="text-4xl mb-4 font-bold text-amber-400">+1,200</div><div class="text-stone-300">Publishing Houses</div></div>
-            <div><div class="text-4xl mb-4 font-bold text-amber-400">+350</div><div class="text-stone-300">Famous Authors</div></div>
-            <div><div class="text-4xl mb-4 font-bold text-amber-400">+15</div><div class="text-stone-300">International Awards</div></div>
+        <div class="container mx-auto px-4 relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-8 text-lg md:text-xl">
+            <div class="p-4"><div class="text-3xl md:text-4xl mb-2 font-bold text-amber-400">+15,000</div><div class="text-stone-300 text-sm md:text-base">Books Sold</div></div>
+            <div class="p-4"><div class="text-3xl md:text-4xl mb-2 font-bold text-amber-400">+1,200</div><div class="text-stone-300 text-sm md:text-base">Publishing Houses</div></div>
+            <div class="p-4"><div class="text-3xl md:text-4xl mb-2 font-bold text-amber-400">+350</div><div class="text-stone-300 text-sm md:text-base">Famous Authors</div></div>
+            <div class="p-4"><div class="text-3xl md:text-4xl mb-2 font-bold text-amber-400">+15</div><div class="text-stone-300 text-sm md:text-base">International Awards</div></div>
         </div>
     </section>
+
+    <!-- Books Showcase Section -->
     <section class="py-20 bg-stone-50">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
-                <div class="w-full max-w-[300px] min-h-[490px] flex flex-col justify-between bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition text-center border border-stone-100">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
+                <!-- Book 1 -->
+                <div class="w-full max-w-[280px] sm:max-w-[300px] min-h-[490px] flex flex-col justify-between bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition text-center border border-stone-100">
                     <div>
                         <div class="relative h-80 overflow-hidden bg-gradient-to-br from-amber-700 to-amber-900 flex items-center justify-center">
-                            <img src="images/echoes-of-time.jpeg" class="w-full h-full object-cover">
+                            <img src="images/echoes-of-time.jpeg" alt="The Echoes of Time" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-amber-900/80 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 text-amber-900 text-base">
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-amber-100 shadow"><i class="fas fa-shopping-cart"></i></a>
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-amber-100 shadow"><i class="fas fa-heart"></i></a>
@@ -141,10 +189,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full max-w-[300px] min-h-[490px] flex flex-col justify-between bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition text-center border border-stone-100">
+
+                <!-- Book 2 -->
+                <div class="w-full max-w-[280px] sm:max-w-[300px] min-h-[490px] flex flex-col justify-between bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition text-center border border-stone-100">
                     <div>
-                        <div class="relative h-80 overflow-hidden bg-gradient-to-br from-amber-700 to-amber-900  flex items-center justify-center">
-                            <img src="images/stellar-horizon.jpeg" class="w-full h-full object-cover">
+                        <div class="relative h-80 overflow-hidden bg-gradient-to-br from-amber-700 to-amber-900 flex items-center justify-center">
+                            <img src="images/stellar-horizon.jpeg" alt="Stellar Horizon" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-amber-900/80 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 text-amber-900 text-base">
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-amber-100 shadow"><i class="fas fa-shopping-cart"></i></a>
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-amber-100 shadow"><i class="fas fa-heart"></i></a>
@@ -157,10 +207,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full max-w-[300px] min-h-[490px] flex flex-col justify-between bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition text-center border border-stone-100">
+
+                <!-- Book 3 -->
+                <div class="w-full max-w-[280px] sm:max-w-[300px] min-h-[490px] flex flex-col justify-between bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition text-center border border-stone-100">
                     <div>
                         <div class="relative h-80 overflow-hidden bg-gradient-to-br from-amber-700 to-amber-900 flex items-center justify-center">
-                            <img src="images/mind-reset.jpeg" class="w-full h-full object-cover">
+                            <img src="images/mind-reset.jpeg" alt="Mind Reset" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-amber-900/80 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 text-amber-900 text-base">
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-amber-100 shadow"><i class="fas fa-shopping-cart"></i></a>
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-amber-100 shadow"><i class="fas fa-heart"></i></a>
@@ -173,10 +225,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-full max-w-[300px] min-h-[490px] flex flex-col justify-between bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition text-center border border-stone-100">
+
+                <!-- Book 4 -->
+                <div class="w-full max-w-[280px] sm:max-w-[300px] min-h-[490px] flex flex-col justify-between bg-white rounded-3xl shadow-lg overflow-hidden group hover:shadow-2xl transition text-center border border-stone-100">
                     <div>
-                        <div class="relative h-80 overflow-hidden bg-gradient-to-br from-amber-700 to-amber-900  flex items-center justify-center">
-                            <img src="images/shadows-of-the-crown.jpeg" class="w-full h-full object-cover">
+                        <div class="relative h-80 overflow-hidden bg-gradient-to-br from-amber-700 to-amber-900 flex items-center justify-center">
+                            <img src="images/shadows-of-the-crown.jpeg" alt="Shadows of the Crown" class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-amber-900/80 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 text-amber-900 text-base">
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-amber-100 shadow"><i class="fas fa-shopping-cart"></i></a>
                                 <a href="#" class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-amber-100 shadow"><i class="fas fa-heart"></i></a>
@@ -189,14 +243,15 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
+
+    <!-- Footer & Contact -->
     <footer class="bg-stone-900 text-white">
         <div class="container mx-auto px-4 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
             <!-- Form -->
-            <div class="bg-stone-800/80 p-8 rounded-3xl border border-stone-700">
+            <div class="bg-stone-800/80 p-6 md:p-8 rounded-3xl border border-stone-700">
                 <h3 class="text-2xl font-bold mb-6 text-amber-400">Pre-order or Request a Book</h3>
                 <form class="space-y-6">
                     <input type="text" placeholder="Your Name" class="w-full p-4 bg-stone-700 border border-stone-600 rounded-lg text-white placeholder-stone-400 focus:ring-4 focus:ring-amber-800 focus:outline-none transition">
@@ -205,12 +260,22 @@
                     <button class="w-full bg-amber-800 text-white py-4 rounded-lg font-semibold hover:bg-amber-900 transition-all duration-300 focus:ring-4 focus:ring-amber-950">Submit Request</button>
                 </form>
             </div>
+            
             <div class="space-y-8">
                 <h3 class="text-2xl font-bold text-stone-100">Fair Location & Hours</h3>
                 <div class="space-y-4">
-                    <div class="flex items-center gap-4"><div class="w-12 h-12 bg-amber-800/20 rounded-lg flex items-center justify-center border border-amber-800/30"><i class="fas fa-map-marker-alt text-amber-500 text-xl"></i></div><div><p class="text-stone-400 text-sm">Main Hall</p><p class="font-medium">International Exhibition Center, Cairo</p></div></div>
-                    <div class="flex items-center gap-4"><div class="w-12 h-12 bg-amber-800/20 rounded-lg flex items-center justify-center border border-amber-800/30"><i class="fas fa-clock text-amber-500 text-xl"></i></div><div><p class="text-stone-400 text-sm">Opening Hours</p><p class="font-medium">Daily from 10:00 AM to 10:00 PM</p></div></div>
-                    <div class="flex items-center gap-4"><div class="w-12 h-12 bg-amber-800/20 rounded-lg flex items-center justify-center border border-amber-800/30"><i class="fas fa-envelope text-amber-500 text-xl"></i></div><div><p class="text-stone-400 text-sm">Support</p><p class="font-medium">info@bookverse.com</p></div></div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-amber-800/20 rounded-lg flex items-center justify-center border border-amber-800/30 shrink-0"><i class="fas fa-map-marker-alt text-amber-500 text-xl"></i></div>
+                        <div><p class="text-stone-400 text-sm">Main Hall</p><p class="font-medium text-sm md:text-base">International Exhibition Center, Cairo</p></div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-amber-800/20 rounded-lg flex items-center justify-center border border-amber-800/30 shrink-0"><i class="fas fa-clock text-amber-500 text-xl"></i></div>
+                        <div><p class="text-stone-400 text-sm">Opening Hours</p><p class="font-medium text-sm md:text-base">Daily from 10:00 AM to 10:00 PM</p></div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-amber-800/20 rounded-lg flex items-center justify-center border border-amber-800/30 shrink-0"><i class="fas fa-envelope text-amber-500 text-xl"></i></div>
+                        <div><p class="text-stone-400 text-sm">Support</p><p class="font-medium text-sm md:text-base">info@bookverse.com</p></div>
+                    </div>
                 </div>
                 <div class="h-48 bg-gradient-to-br from-amber-950 to-stone-900 rounded-2xl flex items-center justify-center text-stone-400 border border-stone-800 cursor-pointer hover:border-amber-800 transition"><i class="fas fa-map-marked-alt text-4xl opacity-50"></i><span class="ml-2">View Fair Floor Plan</span></div>
             </div>
@@ -227,6 +292,5 @@
             </div>
         </div>
     </footer>
-
 </body>
 </html>
